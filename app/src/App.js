@@ -1,20 +1,28 @@
 import React, { Component } from 'react';
-
+import Players from './Players';
 import './App.css';
 
 class App extends Component {
   state = {
-  }
+    players: [
+      {id: 1, name: 'Thor', balls: 0, strikes: 1},
+      {id: 2, name: 'Spiderman', balls: 0, strikes: 1},
+      {id: 3, name: 'Ironman', balls: 0, strikes: 1},
+      {id: 4, name: 'Black Widow', balls: 0, strikes: 1}
+    ],
+  };
 
 
   render() {
     return (
       <div className="App">
-        <h3>hello world!</h3>
+        <h3>Up to Bat</h3>
         <button>strike</button>
         <button>ball</button>
         <button>foul</button>
         <button>hit</button>
+
+        <Players players = {this.state.players} />
       </div>
     );
   }

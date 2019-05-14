@@ -9,9 +9,5 @@ describe('<App />', () => {
     render(<App />);
   });
 
-  it('should display hello word', () => {
-    const { getByText } = render(<App />);
-    getByText(/hello world!/i);
 
-  })
 })
