@@ -1,5 +1,5 @@
 import React from 'react';
-import 'react-testing-library/cleanup-after-each';
+// import 'react-testing-library/cleanup-after-each';
 
 function Players(props) {
     const { players = [] } = props;

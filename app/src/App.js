@@ -1,28 +1,32 @@
 import React, { Component } from 'react';
 import Players from './Players';
+import Counter from './Counter';
 import './App.css';
 
 class App extends Component {
   state = {
     players: [
       {id: 1, name: 'Thor', balls: 0, strikes: 1},
-      {id: 2, name: 'Spiderman', balls: 0, strikes: 1},
-      {id: 3, name: 'Ironman', balls: 0, strikes: 1},
-      {id: 4, name: 'Black Widow', balls: 0, strikes: 1}
     ],
   };
 
+  ball = (player) => {
+    if(player.balls<4) {
+        return {...player, balls: player.balls + 1};
+    }
+    else {
+        return {...player, strikes: 0, balls: 0}
+    }
+}
 
   render() {
     return (
       <div className="App">
         <h3>Up to Bat</h3>
-        <button>strike</button>
-        <button>ball</button>
-        <button>foul</button>
-        <button>hit</button>
+
 
         <Players players = {this.state.players} />
+        <Counter />
       </div>
     );
   }
