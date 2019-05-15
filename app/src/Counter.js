@@ -5,33 +5,44 @@ import React from 'react';
 class Counters extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-                balls: 0,
-                strikes: 0,
-        }
+        // this.state = {
+        //     player: 
+        //         balls: this.balls.state,
+        //         strikes: 0,
+        // }
     }
     
+    
 
-    ball() {
-        console.log("button was clicked")
-        this.setState({
-            balls: this.state.balls + 1,
-        })
+    // ball = () => {
+    //     console.log("button was clicked")
 
-        // if(this.props.players.balls<4) {
-        //     return {...this.props.players, balls: this.props.player.balls + 1};
-        // }
-        // else {
-        //     return {...this.props.players, strikes: 0, balls: 0}
-        // }
-    }
+
+    //     if(this.props.balls<4) {
+    //         this.setState({
+    //             balls: this.props.balls + 1,
+    //             // greeting: 'hello',
+    //         })
+    //     }
+    //     else {
+    //         this.setState({
+    //             balls: 0,
+    //             strikes: 0,
+    //         })
+    //     }
+    // }
 
     strike() {
-        if(this.props.players.strikes<3) {
-            return {...this.props.players, strikes: this.props.players.strikes + 1};
+        if(this.state.strikes<3) {
+            this.setState({
+                strikes: this.state.strikes + 1,
+            })
         }
         else {
-            return {...this.props.players, strikes: 0, balls: 0}
+            this.setState({
+                balls: 0,
+                strikes: 0,
+            })
         }
     }
 
@@ -56,11 +67,12 @@ class Counters extends React.Component {
 
             <div>
                 <h3>Player List</h3>
-                <button>strike</button>
+                <button onClick={this.strike}>strike</button>
         <button>foul</button>
-        <button onClick={this.ball}>ball</button>
+        <button data-testid = "ballButton" onClick={this.props.ball}>ball</button>
         <button>hit</button>
-                {this.state.balls}
+                <div> {this.props.balls}</div>
+                <div>Strikes: {this.props.strikes}</div>
             </div>
         );
     }

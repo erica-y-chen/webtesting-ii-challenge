@@ -5,17 +5,27 @@ import './App.css';
 
 class App extends Component {
   state = {
-    players: [
-      {id: 1, name: 'Thor', balls: 0, strikes: 1},
-    ],
+      id: 1, 
+      name: 'Thor', 
+      balls: 0, 
+      strikes: 1,
   };
 
-  ball = (player) => {
-    if(player.balls<4) {
-        return {...player, balls: player.balls + 1};
+  ball = () => {
+    console.log("button was clicked")
+
+
+    if(this.state.balls<4) {
+        this.setState({
+            balls: this.state.balls + 1,
+            // greeting: 'hello',
+        })
     }
     else {
-        return {...player, strikes: 0, balls: 0}
+        this.setState({
+            balls: 0,
+            strikes: 0,
+        })
     }
 }
 
@@ -26,7 +36,7 @@ class App extends Component {
 
 
         <Players players = {this.state.players} />
-        <Counter />
+        <Counter ball={this.ball} balls = {this.state.balls} strikes = {this.state.strikes}/>
       </div>
     );
   }
